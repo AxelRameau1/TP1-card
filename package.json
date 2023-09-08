@@ -1,0 +1,16 @@
+{
+  "name": "vite-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sass:w": "sass --watch scss/main.scss:css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.66.1",
+    "vite": "^4.4.9"
+  }
+}

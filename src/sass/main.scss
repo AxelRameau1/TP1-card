@@ -1,0 +1,108 @@
+$color-neutral-100: #fff;
+$color-neutral-900: #1f3049;
+$color-primary-400: #0066ff;
+
+$colors: (
+  neutre: (
+    100: #fff,
+    900: #1f3049,
+  ),
+  primaire: (
+    400: #0066ff,
+  ),
+);
+/* font-families */
+$ff-sans: 'Open Sans', sans-serif;
+
+/* font-sizes */
+$fs: (
+  900: 60px,
+  800: 48px,
+  700: 27px,
+  600: 24px,
+  400: 18px,
+);
+
+/* font-weights */
+$fw-400: 400;
+$fw-700: 700;
+
+/* size/spacing values */
+$size-8: 8px;
+$size-20: 20px;
+$size-36: 36px;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'],
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:root {
+  --clr-neutre-100: #{$color-neutral-100};
+  --clr-primary-400: #{$color-primary-400};
+  --clr-neutral-900: #{$color-neutral-900};
+  --bg-card: var(--clr-neutre-100);
+
+  @each $theme, $themeValue in $colors {
+    @each $key, $value in $themeValue {
+      #{'--clr-'+$key}: $value;
+    }
+  }
+  @each $key, $value in $fs {
+    #{'--fs-'+$key}: $value;
+  }
+}
+
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: $color-neutral-900;
+}
+
+.plan {
+  border: solid 0.25rem $color-primary-400;
+  background-color: var(--bg-card);
+  &__title {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: $color-primary-400;
+    text-align: center;
+    //font-size: ;
+  }
+  &__feature-list {
+  }
+}
+.plan--dark {
+  --bg-card: var(--clr-primary-400);
+}
