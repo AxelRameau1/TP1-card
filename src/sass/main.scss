@@ -54,10 +54,11 @@ dd {
   margin: 0;
 }
 
-ul[role='list'],
-ol[role='list'],
+ul,
+ol,
 li {
   list-style: none;
+  padding: 0;
 }
 
 img {
@@ -87,10 +88,17 @@ body {
   height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: $ff-sans;
   background-color: $color-neutral-900;
 }
+.page-title {
+  display: grid;
+  place-content: center;
 
+  color: var(--clr-neutre-100);
+}
 .plan {
+  padding: $size-20;
   border: solid 0.25rem $color-primary-400;
   background-color: var(--bg-card);
   &__title {
@@ -98,9 +106,12 @@ body {
     text-transform: uppercase;
     color: $color-primary-400;
     text-align: center;
-    //font-size: ;
+    font-size: var(--fs-400);
   }
-  &__feature-list {
+  &__list-item {
+    padding: 1rem;
+    border-bottom: solid 1px gray;
+    text-align: center;
   }
 }
 .plan--dark {
