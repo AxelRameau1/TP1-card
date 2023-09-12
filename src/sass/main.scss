@@ -6,6 +6,7 @@ $colors: (
   neutre: (
     100: #fff,
     900: #1f3049,
+    1000: #000000,
   ),
   primaire: (
     400: #0066ff,
@@ -66,11 +67,20 @@ img {
   display: block;
 }
 
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
 :root {
   --clr-neutre-100: #{$color-neutral-100};
   --clr-primary-400: #{$color-primary-400};
   --clr-neutral-900: #{$color-neutral-900};
   --bg-card: var(--clr-neutre-100);
+  --clr-text: var(--clr-neutre-1000);
+  --bg-button: var(--clr-primary-400);
+  --text-button: var(--clr-neutre-100);
+  --card-titre: var(--clr-primary-400);
+  --bg-button-h: var(--clr-neutral-900);
 
   @each $theme, $themeValue in $colors {
     @each $key, $value in $themeValue {
@@ -87,33 +97,75 @@ body {
   place-content: center;
   height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  font-family: $ff-sans;
   background-color: $color-neutral-900;
+  font-family: $ff-sans;
+  line-height: 1.5;
+  text-align: center;
 }
+
 .page-title {
   display: grid;
   place-content: center;
-
+  padding-bottom: 5rem;
   color: var(--clr-neutre-100);
 }
+.card {
+  display: flex;
+}
+
 .plan {
-  padding: $size-20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
   border: solid 0.25rem $color-primary-400;
+  color: var(--clr-text);
   background-color: var(--bg-card);
   &__title {
+    color: var(--card-titre);
     font-family: sans-serif;
-    text-transform: uppercase;
-    color: $color-primary-400;
-    text-align: center;
     font-size: var(--fs-400);
+    text-transform: uppercase;
+  }
+  &__feature-list {
+    width: 80%;
   }
   &__list-item {
     padding: 1rem;
-    border-bottom: solid 1px gray;
-    text-align: center;
+    &:not(:last-child) {
+      border-bottom: solid 1px rgb(201, 201, 201);
+    }
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: var(--fs-900);
+  }
+  &--dark {
+    transform: scale(1.1);
+    --bg-card: var(--clr-primary-400);
+    --clr-text: var(--clr-neutre-100);
+    --bg-button: var(--clr-neutre-100);
+    --text-button: var(--clr-primary-400);
+    --card-titre: var(--clr-neutre-100);
   }
 }
-.plan--dark {
-  --bg-card: var(--clr-primary-400);
+
+span {
+  font-size: var(--fs-400);
+  font-weight: 300;
+}
+.button {
+  width: 60%;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--bg-button);
+  color: var(--text-button);
+  text-decoration: none;
+  font-weight: 700;
+  &:hover {
+    background-color: var(--bg-button-h);
+    --text-button: var(--clr-neutre-100);
+  }
 }
